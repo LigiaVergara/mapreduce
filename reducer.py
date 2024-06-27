@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 import sys
 
 # The input will be in the form of key-value pairs
@@ -20,8 +20,8 @@ import sys
 # Cash  455.51
 
 # Sum of all sales (values) is initialized with zero, we just started
+sum_of_values = 0
 count_of_values = 0
-
 # Previous key is initialized with None, we just started
 previous_key = None
 
@@ -41,23 +41,26 @@ for line in sys.stdin:
     # This means the line starts with a new key (key changes e.g. from "Visa" to "Cash")
     # Remember that our keys are sorted
     if previous_key != None and previous_key != key:
-       if  count_of_values > 114: 
+      
 # Then write the result of the old key (Key=category, Value= Sum of Sales)
         # to the standart output (stdout)
         # Key and value are seperated by a tab (\t)
         # Line ends with new line (\n)
-           sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
+       average_of_values = sum_of_values/count_of_values
+       sys.stdout.write("{0}\t{1}\n".format(previous_key, average_of_values))
         # Sum of sales starts again with 0
-       count_of_values = 1
-    count_of_values +=1
+       count_of_values = 0
+       sum_of_values =0
 
     # Add the value to the total sales
     # a += b is the same as a = a + b
     # the float function transforms the value
     # to a float data type (like decimal)
+    sum_of_values Â+= value
+    count_of_values += 1
     previous_key = key
     # the previous key for the next iteration is the current key of the this iteration 
 
 # write the last result to stdout
-if previous_key is not None and count_of_values > 114:
-       sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
+if previous_key is not None:
+       sys.stdout.write("{0}\t{1}\n".format(previous_key, average_of_values))
