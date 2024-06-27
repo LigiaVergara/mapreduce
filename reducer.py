@@ -41,15 +41,15 @@ for line in sys.stdin:
     # This means the line starts with a new key (key changes e.g. from "Visa" to "Cash")
     # Remember that our keys are sorted
     if previous_key != None and previous_key != key:
-        # Then write the result of the old key (Key=category, Value= Sum of Sales)
+       if  count_of_values > 114: 
+# Then write the result of the old key (Key=category, Value= Sum of Sales)
         # to the standart output (stdout)
         # Key and value are seperated by a tab (\t)
         # Line ends with new line (\n)
-        sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
+           sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
         # Sum of sales starts again with 0
-        count_of_values = 1
-    else:
-	count_of_values +=1
+       count_of_values = 1
+    count_of_values +=1
 
     # Add the value to the total sales
     # a += b is the same as a = a + b
@@ -59,4 +59,5 @@ for line in sys.stdin:
     # the previous key for the next iteration is the current key of the this iteration 
 
 # write the last result to stdout
-sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
+if previous_key is not None and count_of_values > 114:
+       sys.stdout.write("{0}\t{1}\n".format(previous_key, count_of_values))
