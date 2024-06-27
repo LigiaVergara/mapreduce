@@ -43,5 +43,5 @@ for line in sys.stdin:
     # Key is the payment, value is the sales     
     # With a tab (\t) between key and value
     # New line \n means new record	
-    if category == "Computers" or category == "Cameras" or category == "Video Games": 
-    	  sys.stdout.write("{0}\t{1}\n".format(category, sales))
+    if category in ["Computers","Cameras","Video Games"]: 
+       sys.stdout.write("{0}\t{1}\n".format(category, sales))

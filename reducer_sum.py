@@ -1,23 +1,6 @@
 #!/usr/bin/env python
-
 import sys
 
-# The input will be in the form of key-value pairs
-# It is sorted according to the key
-# Each key value pair will be in a new line
-# The key and the value are seperated by a tab (\t)
-# The key is the payment type and the value is the sales
-
-# Example input data (Key=Payment, Value=Sales)
-# Input is ordered by the key
-# Visa  205.96
-# Cash  11.32
-# Cash  444.19
-
-# We want to sum all values with the same key
-# Example output data (Key=Payment, Value=Sum of Sales)
-# Visa  205.96
-# Cash  455.51
 
 # Sum of all sales (values) is initialized with zero, we just started
 sum_of_values = 0
@@ -28,12 +11,7 @@ previous_key = None
 # For each new line in the standard input 
 for line in sys.stdin:
 
-    # split the line at the tabulator ("\t")
-    # strip removes whitespaces and new lines at the beginning and end of the line
-    # The result is a tuple with 2 elements
     data = line.strip().split("\t")
-
-    # Store the 2 elements of this line in seperate variables
     key, value = data
 
     # Do we have a previous_key (previous_key != None) and 
@@ -53,7 +31,7 @@ for line in sys.stdin:
     # a += b is the same as a = a + b
     # the float function transforms the value
     # to a float data type (like decimal)
-	sum_of_values += float(value)    
+	sum_of_values += float(value)
 	previous_key = key
     # the previous key for the next iteration is the current key of the this iteration 
 
